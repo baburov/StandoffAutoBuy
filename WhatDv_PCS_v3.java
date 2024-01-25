@@ -33,9 +33,7 @@ long slpS = 1000;
 int itt = 0;
 
 Point lp = Point.get();    
-Point rp = Point.get();
-Point priceLItt = Point.get();    
-Point priceRItt = Point.get();   
+Point rp = Point.get(); 
 long secItter = 0;
 for (;;)
 { 
@@ -45,26 +43,7 @@ for (;;)
         lp.y = stickL.y + (q * slotH);
         rp.x = stickR.x;
         rp.y = stickR.y + (q * slotH);
-        priceLItt.x = priceL.x;
-        priceLItt.y = priceL.y + (q * slotH);
-        priceRItt.x = priceR.x;
-        priceRItt.y = priceR.y + (q * slotH);
-        if (getContoursCount (lp, rp) > 1 && getColor(buy.x, buy.y + (slotH * q)) < 11077777)
-        {
-            click(buy.x, buy.y + (slotH * q));  
-            sleep(25);
-            clickRand(confirm, 0);
-            sleep(350);
-            if (getColor(error.x, error.y) <= errorColor + 1000)
-            {
-                clickRand(confirm, 0);
-                sleep(120);
-                log("error buy › "+Time.getTime());
-            }
-            else
-                log("buy › "+Time.getTime());
-        }
-        if (hasImage(selected_price, priceLItt, priceRItt))
+        if (getContoursCount (lp, rp) > 1 && getColor(buy.x, buy.y + (slotH * q)) < 11077777 || hasImage(selected_price, priceL, priceR))
         {
             click(buy.x, buy.y + (slotH * q));  
             sleep(25);
