@@ -1,4 +1,4 @@
-
+//изм01
 int stickCount = 3;
 int stickSize = 52;
 
@@ -28,26 +28,26 @@ long kdtime = Time.getMillis();
 
 long slpS = 1000;
 
+Point lp = Point.get();    
+Point rp = Point.get();
+lp.x = stickL.x;
+rp.x = stickR.x;
 for (;;)
 { 
      for(int q = 0; q < slotA; q++)
      {
-          Point lp = Point.get();    
-          Point rp = Point.get();
-          lp.x = stickL.x;
           lp.y = stickL.y + (q * slotH);
-          rp.x = stickR.x;
           rp.y = stickR.y + (q * slotH);
-            
           if(getContoursCount (lp, rp) > 2 && getColor(buy.x, buy.y + (slotH * q)) < 11077777)
           {
                click(buy.x, buy.y + (slotH * q));                                     
                sleep(25);
                clickRand(confirm, 0);
-               sleep(120);
+               sleep(100);
                clickRand(confirm, 0);
                sleep(100);
                log("buy › "+Time.getTime());
+               break;
           }
           if ((((Time.getMillis() - kdtime) / slpS) % 2 == 0) && getColor(buy.x, buy.y + (slotH * q)) > 14000000)
           {
