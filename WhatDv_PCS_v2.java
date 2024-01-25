@@ -5,8 +5,8 @@ int stickSize = 52;
 var error = Point.get(1357, 752);
 int errorColor = 9992742;
 
-var stickL = Point.get(1479,581);
-var stickR = Point.get(1479 + stickCount * stickSize,602); 
+var stickL = Point.get(1475,581);
+var stickR = Point.get(1475 + (5 - stickCount) * stickSize,602); 
 
 var buy = Point.get(2240,569);
 
@@ -40,13 +40,18 @@ for (;;)
             
         if(getContoursCount (lp, rp) > 2 && getColor(buy.x, buy.y + (slotH * q)) < 11077777)
         {
-            click(buy.x, buy.y + (slotH * q));                                     
-            sleep(35);
-            clickRand(confirm, 0);
+            for (int x = 0; x < 2; x++){
+                click(buy.x, buy.y + (slotH * q));  
+                sleep(10);
+            }
+            sleep(15);
+            for (int x = 0; x < 2; x++){
+                clickRand(confirm, 0);
+                sleep(10);
+            }
             sleep(150);
             if (getColor(error.x, error.y) <= errorColor + 1000)
             {
-                sleep(100);
                 clickRand(confirm, 0);
                 sleep(120);
                 log("error buy › "+Time.getTime());
