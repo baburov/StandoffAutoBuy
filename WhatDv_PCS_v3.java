@@ -49,7 +49,22 @@ for (;;)
         priceLItt.y = priceL.y + (q * slotH);
         priceRItt.x = priceR.x;
         priceRItt.y = priceR.y + (q * slotH);
-        if (getContoursCount (lp, rp) > 1 && getColor(buy.x, buy.y + (slotH * q)) < 11077777 || hasImage(selected_price, priceLItt, priceRItt))
+        if (getContoursCount (lp, rp) > 1 && getColor(buy.x, buy.y + (slotH * q)) < 11077777)
+        {
+            click(buy.x, buy.y + (slotH * q));  
+            sleep(25);
+            clickRand(confirm, 0);
+            sleep(350);
+            if (getColor(error.x, error.y) <= errorColor + 1000)
+            {
+                clickRand(confirm, 0);
+                sleep(120);
+                log("error buy › "+Time.getTime());
+            }
+            else
+                log("buy › "+Time.getTime());
+        }
+        if (hasImage(selected_price, priceLItt, priceRItt))
         {
             click(buy.x, buy.y + (slotH * q));  
             sleep(25);
