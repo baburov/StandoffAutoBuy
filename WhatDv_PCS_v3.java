@@ -1,10 +1,13 @@
-Image selected_price = Image.load("zero_with_point");
+Image selected_price_1 = Image.load("zero_with_point");
+Image selected_price_2 = Image.load("one_with_zero");
 
 int stickCount = 2;
 int stickSize = 52;
 
 var priceL = Point.get(1750, 547);
 var priceR = Point.get(1890, 618);
+
+var viewExit = Point.get(304, 951);
 
 var error = Point.get(1357, 752);
 int errorColor = 9992742;
@@ -25,7 +28,7 @@ int slotA = 3;
 int updColor = 6381138;
 
 startScreenCapture(2);
-setMinMatchQuality(95); 
+setMinMatchQuality(97); 
 sleep(5);
 long kdtime = Time.getMillis();
 
@@ -43,7 +46,7 @@ for (;;)
         lp.y = stickL.y + (q * slotH);
         rp.x = stickR.x;
         rp.y = stickR.y + (q * slotH);
-        if (hasImage(selected_price, priceL, priceR))
+        if (hasImg(selected_price_1, priceL, priceR) || hasImg(selected_price_2, priceL, priceR))
         {
             click(buy.x, buy.y);  
             sleep(25);
@@ -73,6 +76,7 @@ for (;;)
             else
                 log("buy › "+Time.getTime());
         }
+        click(, buy.y); 
         if ((((Time.getMillis() - kdtime) / slpS) != secItter) && getColor(buy.x, buy.y + (slotH * q)) > 14000000)
         {
             secItter = ((Time.getMillis() - kdtime) / slpS);
