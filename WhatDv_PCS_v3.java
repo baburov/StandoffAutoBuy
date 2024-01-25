@@ -26,6 +26,7 @@ int slotA = 3;
 int updColor = 6381138;
 
 startScreenCapture(2);
+setMinMatchQuality(95); 
 sleep(5);
 long kdtime = Time.getMillis();
 
@@ -50,7 +51,7 @@ for (;;)
         priceLItt.y = priceL.y + (q * slotH);
         priceRItt.x = priceR.x;
         priceRItt.y = priceR.y + (q * slotH);
-        if (getContoursCount (lp, rp) > 2 && getColor(buy.x, buy.y + (slotH * q)) < 11077777 || hasImage(selected_price, priceLItt, priceRItt) && getContoursCount (lp, fr))
+        if (getContoursCount (lp, rp) > 1 && getColor(buy.x, buy.y + (slotH * q)) < 11077777 || hasImage(selected_price, priceLItt, priceRItt) && getContoursCount (lp, fr) > 1)
         {
             click(buy.x, buy.y + (slotH * q));  
             sleep(25);
