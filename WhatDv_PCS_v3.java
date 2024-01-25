@@ -52,15 +52,9 @@ for (;;)
             sleep(25);
             clickRand(confirm, 0);
             sleep(350);
-            if (getColor(error.x, error.y) <= errorColor + 1000)
-            {
-                clickRand(confirm, 0);
-                sleep(120);
-                log("error buy › "+Time.getTime());
-            }
-            else
-                log("buy › "+Time.getTime());
+            log("try to buy › "+Time.getTime());
             click(viewExit.x, viewExit.y); 
+            sleep(50);
         }
         if (getContoursCount (lp, rp) > 1 && getColor(buy.x, buy.y + (slotH * q)) < 11077777)
         {
@@ -77,6 +71,15 @@ for (;;)
             else
                 log("buy › "+Time.getTime());
             click(viewExit.x, viewExit.y); 
+            sleep(50);
+        }
+        if (getColor(error.x, error.y) <= errorColor + 1000)
+        {
+            clickRand(confirm, 0);
+            sleep(120);
+            log("error buy › "+Time.getTime());
+            click(viewExit.x, viewExit.y); 
+            sleep(50);
         }
         if ((((Time.getMillis() - kdtime) / slpS) != secItter) && getColor(buy.x, buy.y + (slotH * q)) > 14000000)
         {
@@ -95,6 +98,7 @@ for (;;)
             clickRand(upd, 0);
             log("upd bug › "+Time.getTime());
             click(viewExit.x, viewExit.y); 
+            sleep(50);
         }
     }
 }
