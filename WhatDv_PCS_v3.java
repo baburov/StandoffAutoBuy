@@ -3,8 +3,8 @@ Image selected_price = Image.load("zero_with_point");
 int stickCount = 2;
 int stickSize = 52;
 
-var priceL = Point.get(1750, 555);
-var priceR = Point.get(1882, 739);
+var priceL = Point.get(1750, 547);
+var priceR = Point.get(1890, 618);
 
 var error = Point.get(1357, 752);
 int errorColor = 9992742;
