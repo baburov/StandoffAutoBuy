@@ -76,7 +76,7 @@ for (;;)
             else
                 log("buy › "+Time.getTime());
         }
-        click(, buy.y); 
+        click(viewExit.x, viewExit.y); 
         if ((((Time.getMillis() - kdtime) / slpS) != secItter) && getColor(buy.x, buy.y + (slotH * q)) > 14000000)
         {
             secItter = ((Time.getMillis() - kdtime) / slpS);
