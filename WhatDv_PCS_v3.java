@@ -9,8 +9,8 @@ var priceR = Point.get(1890, 618);
 var error = Point.get(1357, 752);
 int errorColor = 9992742;
 
-var stickL = Point.get(1475,581);
-var stickR = Point.get(1475 + (5 - stickCount) * stickSize,602); 
+var stickL = Point.get(1473,581);
+var stickR = Point.get(1473 + (5 - stickCount) * stickSize,602); 
 
 var buy = Point.get(2240,569);
 
