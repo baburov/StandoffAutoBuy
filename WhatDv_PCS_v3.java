@@ -32,19 +32,25 @@ long kdtime = Time.getMillis();
 long slpS = 1000;
 int itt = 0;
 
+Point lp = Point.get();    
+Point rp = Point.get();
+Point fr = Point.get();
+Point priceLItt = Point.get();    
+Point priceRItt = Point.get();   
 for (;;)
 { 
     for(int q = 0; q < slotA; q++)
     {
-        Point lp = Point.get();    
-        Point rp = Point.get();
-        
         lp.x = stickL.x;
         lp.y = stickL.y + (q * slotH);
         rp.x = stickR.x;
         rp.y = stickR.y + (q * slotH);
-        firstStickR.y = stickR.y + (q * slotH);
-        if (getContoursCount (lp, rp) > 2 && getColor(buy.x, buy.y + (slotH * q)) < 11077777 || hasImage(selected_price, priceL, priceR) && getContoursCount (lp, firstStickR))
+        fr.y = firstStickR.y + (q * slotH);
+        priceLItt.x = priceL.x;
+        priceLItt.y = priceL.y + (q * slotH);
+        priceRItt.x = priceR.x;
+        priceRItt.y = priceR.y + (q * slotH);
+        if (getContoursCount (lp, rp) > 2 && getColor(buy.x, buy.y + (slotH * q)) < 11077777 || hasImage(selected_price, priceLItt, priceRItt) && getContoursCount (lp, fr))
         {
             click(buy.x, buy.y + (slotH * q));  
             sleep(25);
