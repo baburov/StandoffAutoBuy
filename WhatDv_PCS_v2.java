@@ -54,7 +54,7 @@ for (;;)
                clickRand(upd, 0);
                sleep(100);
                clickRand(upd, 0);
-               sleep(300)
+               sleep(300);
 
                break;
           }
