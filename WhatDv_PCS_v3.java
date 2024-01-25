@@ -60,6 +60,7 @@ for (;;)
             }
             else
                 log("buy › "+Time.getTime());
+            click(viewExit.x, viewExit.y); 
         }
         if (getContoursCount (lp, rp) > 1 && getColor(buy.x, buy.y + (slotH * q)) < 11077777)
         {
@@ -75,8 +76,8 @@ for (;;)
             }
             else
                 log("buy › "+Time.getTime());
+            click(viewExit.x, viewExit.y); 
         }
-        click(viewExit.x, viewExit.y); 
         if ((((Time.getMillis() - kdtime) / slpS) != secItter) && getColor(buy.x, buy.y + (slotH * q)) > 14000000)
         {
             secItter = ((Time.getMillis() - kdtime) / slpS);
@@ -85,6 +86,7 @@ for (;;)
             sleep(100);
             clickRand(upd, 0);
             sleep(300);
+            click(viewExit.x, viewExit.y); 
             break;
         }
         if (getColor(upd.x, upd.y) < 10000000)
@@ -92,6 +94,7 @@ for (;;)
             sleep(100);
             clickRand(upd, 0);
             log("upd bug › "+Time.getTime());
+            click(viewExit.x, viewExit.y); 
         }
     }
 }
