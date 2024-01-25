@@ -3,6 +3,7 @@ Image selected_price_2 = Image.load("one_with_zero");
 
 int stickCount = 2;
 int stickSize = 52;
+int check_price = 1; //1 - да, 0 - нет
 
 var priceL = Point.get(1750, 547);
 var priceR = Point.get(1890, 618);
@@ -46,7 +47,7 @@ for (;;)
         lp.y = stickL.y + (q * slotH);
         rp.x = stickR.x;
         rp.y = stickR.y + (q * slotH);
-        if (hasImg(selected_price_1, priceL, priceR) || hasImg(selected_price_2, priceL, priceR))
+        if (check_price == 1 && (hasImg(selected_price_1, priceL, priceR) || hasImg(selected_price_2, priceL, priceR)))
         {
             click(buy.x, buy.y);  
             sleep(25);
