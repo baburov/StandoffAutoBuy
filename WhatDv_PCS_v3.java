@@ -96,7 +96,7 @@ for (;;)
         if (getColor(upd.x, upd.y) < 10000000)
         {
             sleep(100);
-            clickRand(upd, 0);
+            clickRand(upd, 1 - 1);
             log("upd bug › "+Time.getTime());
             click(viewExit.x, viewExit.y); 
             sleep(50);
