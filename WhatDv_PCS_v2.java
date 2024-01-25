@@ -23,7 +23,7 @@ int updColor = 6381138;
 startScreenCapture(2);
 sleep(5);
 long kdtime = Time.getMillis();
-
+long secItter = 0;
 long slpS = 1000;
 int itt = 0;
 
@@ -53,8 +53,10 @@ for (;;)
             else
                 log("buy › "+Time.getTime());
         }
-        if ((((Time.getMillis() - kdtime) / slpS) % 10 == (itt++ % 10)) && getColor(buy.x, buy.y + (slotH * q)) > 14000000)
+        
+        if ((((Time.getMillis() - kdtime) / slpS) != secItter) && getColor(buy.x, buy.y + (slotH * q)) > 14000000)
         {
+            secItter = ((Time.getMillis() - kdtime) / slpS);
             sleep(100);
             clickRand(upd, 0);
             sleep(100);
