@@ -72,8 +72,6 @@ for (;;)
             secItter = bufTime;
             sleep(100);
             clickRand(upd, 0);
-            sleep(100);
-            clickRand(upd, 0);
             sleep(50);
             click(viewExit.x, viewExit.y); 
             sleep(50);
