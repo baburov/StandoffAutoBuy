@@ -58,14 +58,14 @@ for (;;)
             {
                 clickRand(confirm, 0);
                 sleep(50);
-                log("error buy 1› "+Time.getTime());
+                log("error buy 2› "+Time.getTime());
             }
             else
-                log("buy 1› "+Time.getTime());
+                log("buy 2› "+Time.getTime());
             click(viewExit.x, viewExit.y); 
             sleep(50);
         }
-        if ((((Time.getMillis() - kdtime) / slpS) != secItter) && getColor(buy.x, buy.y) > 14000000 && !updErrorFlag || ((Time.getMillis() - kdtime) / slpS) % 10 == 0)
+        if ((((Time.getMillis() - kdtime) / slpS) != secItter) && getColor(buy.x, buy.y) > 14000000 && updErrorFlag == 0 || ((Time.getMillis() - kdtime) / slpS) % 10 == 0)
         {
             secItter = ((Time.getMillis() - kdtime) / slpS);
             sleep(100);
