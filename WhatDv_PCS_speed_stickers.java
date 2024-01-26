@@ -28,28 +28,20 @@ long slpS = 1000;
 long secItter = 0;
 for (;;)
 { 
-        if (getContoursCount (stickL, stickR) > 1 && getColor(buy.x, buy.y) < 11077777)
+        if (getContoursCount (stickL, stickR) > 2)
         {
             click(buy.x, buy.y);  
             sleep(25);
             clickRand(confirm, 0);
-            sleep(350);
+            sleep(500);
             if (getColor(error.x, error.y) <= errorColor + 1000)
             {
                 clickRand(confirm, 0);
-                sleep(120);
+                sleep(50);
                 log("error buy › "+Time.getTime());
             }
             else
                 log("buy › "+Time.getTime());
-            click(viewExit.x, viewExit.y); 
-            sleep(50);
-        }
-        if (getColor(error.x, error.y) <= errorColor + 1000)
-        {
-            clickRand(confirm, 0);
-            sleep(120);
-            log("error buy › "+Time.getTime());
             click(viewExit.x, viewExit.y); 
             sleep(50);
         }
@@ -60,9 +52,9 @@ for (;;)
             clickRand(upd, 0);
             sleep(100);
             clickRand(upd, 0);
-            sleep(300);
+            sleep(50);
             click(viewExit.x, viewExit.y); 
-            break;
+            sleep(50);
         }
         if (getColor(upd.x, upd.y) < 10000000)
         {
