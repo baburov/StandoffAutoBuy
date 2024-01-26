@@ -26,6 +26,7 @@ int updColor = 6381138;
 startScreenCapture(2);
 sleep(5);
 long kdtime = Time.getMillis();
+long bufTime = 0;
 long slpS = 1500;
 long secItter = 0;
 int updErrorFlag = 0;
@@ -65,9 +66,10 @@ for (;;)
             click(viewExit.x, viewExit.y); 
             sleep(50);
         }
-        if ((((Time.getMillis() - kdtime) / slpS) != secItter) && getColor(buy.x, buy.y) > 14000000 || ((Time.getMillis() - kdtime) / slpS) % 8 == 0)
+        bufTime = (Time.getMillis() - kdtime) / slpS;
+        if (bufTime != secItter && getColor(buy.x, buy.y) > 14000000 || bufTime % 8 == 0)
         {
-            secItter = ((Time.getMillis() - kdtime) / slpS);
+            secItter = bufTime;
             sleep(100);
             clickRand(upd, 0);
             sleep(100);
