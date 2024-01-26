@@ -2,7 +2,7 @@ Image selected_price_1 = Image.load("zero_with_point");
 Image selected_price_2 = Image.load("one_with_zero");
 
 var priceL = Point.get(1750, 547);
-var priceR = Point.get(1890, 618);
+var priceR = Point.get(1844, 605);
 
 var viewExit = Point.get(304, 951);
 
@@ -25,12 +25,7 @@ startScreenCapture(2);
 setMinMatchQuality(97); 
 sleep(5);
 long kdtime = Time.getMillis();
-
 long slpS = 1000;
-int itt = 0;
-
-Point lp = Point.get();    
-Point rp = Point.get(); 
 long secItter = 0;
 for (;;)
 { 
@@ -52,14 +47,14 @@ for (;;)
             click(viewExit.x, viewExit.y); 
             sleep(50);
         }
-        if ((((Time.getMillis() - kdtime) / slpS) != secItter) && getColor(buy.x, buy.y + (slotH * q)) > 14000000)
+        if ((((Time.getMillis() - kdtime) / slpS) != secItter) && getColor(buy.x, buy.y) > 14000000)
         {
             secItter = ((Time.getMillis() - kdtime) / slpS);
             sleep(100);
             clickRand(upd, 0);
             sleep(100);
             clickRand(upd, 0);
-            sleep(300);
+            sleep(250);
             click(viewExit.x, viewExit.y); 
             sleep(50);
             break;
@@ -67,7 +62,7 @@ for (;;)
         if (getColor(upd.x, upd.y) < 10000000)
         {
             sleep(100);
-            clickRand(upd, 1 - 1);
+            clickRand(upd, 0);
             sleep(50);
             click(viewExit.x, viewExit.y); 
             sleep(50);
