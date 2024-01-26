@@ -28,7 +28,7 @@ long slpS = 1000;
 long secItter = 0;
 for (;;)
 { 
-        if (getContoursCount (stickL, stickR) > 2)
+        if (getContoursCount (stickL, stickR) > 2 && getColor(buy.x, buy.y + (slotH * q)) < 11077777)
         {
             click(buy.x, buy.y);  
             sleep(25);
