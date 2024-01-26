@@ -26,7 +26,7 @@ int updColor = 6381138;
 startScreenCapture(2);
 sleep(5);
 long kdtime = Time.getMillis();
-long slpS = 1000;
+long slpS = 1500;
 long secItter = 0;
 int updErrorFlag = 0;
 for (;;)
@@ -65,7 +65,7 @@ for (;;)
             click(viewExit.x, viewExit.y); 
             sleep(50);
         }
-        if ((((Time.getMillis() - kdtime) / slpS) != secItter) && getColor(buy.x, buy.y) > 14000000 && updErrorFlag == 0 || ((Time.getMillis() - kdtime) / slpS) % 10 == 0)
+        if ((((Time.getMillis() - kdtime) / slpS) != secItter) && getColor(buy.x, buy.y) > 14000000 || ((Time.getMillis() - kdtime) / slpS) % 8 == 0)
         {
             secItter = ((Time.getMillis() - kdtime) / slpS);
             sleep(100);
@@ -83,8 +83,5 @@ for (;;)
             log("upd bug › "+Time.getTime());
             click(viewExit.x, viewExit.y); 
             sleep(50);
-            updErrorFlag = 1;
         }
-        else
-            updErrorFlag = 0;
 }
