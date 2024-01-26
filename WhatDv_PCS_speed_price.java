@@ -57,7 +57,6 @@ for (;;)
             sleep(250);
             click(viewExit.x, viewExit.y); 
             sleep(50);
-            break;
         }
         if (getColor(upd.x, upd.y) < 10000000)
         {
