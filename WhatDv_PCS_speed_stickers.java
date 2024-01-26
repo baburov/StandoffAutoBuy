@@ -8,6 +8,8 @@ int errorColor = 9992742;
 
 var stickL = Point.get(1473,581);
 var stickR = Point.get(1473 + (5 - stickCount) * stickSize,602); 
+var stickL2 = Point.get(1473,581 + 144);
+var stickR2 = Point.get(1473 + (5 - stickCount) * stickSize,602 + 144); 
 
 var buy = Point.get(2240,569);
 
@@ -26,9 +28,10 @@ sleep(5);
 long kdtime = Time.getMillis();
 long slpS = 1000;
 long secItter = 0;
+int updErrorFlag = 0;
 for (;;)
 { 
-        if (getContoursCount (stickL, stickR) > 2 && getColor(buy.x, buy.y + (slotH * q)) < 11077777)
+        if (getContoursCount (stickL, stickR) > 2 && getColor(buy.x, buy.y) < 11077777)
         {
             click(buy.x, buy.y);  
             sleep(25);
@@ -38,14 +41,31 @@ for (;;)
             {
                 clickRand(confirm, 0);
                 sleep(50);
-                log("error buy › "+Time.getTime());
+                log("error buy 1› "+Time.getTime());
             }
             else
-                log("buy › "+Time.getTime());
+                log("buy 1› "+Time.getTime());
             click(viewExit.x, viewExit.y); 
             sleep(50);
         }
-        if ((((Time.getMillis() - kdtime) / slpS) != secItter) && getColor(buy.x, buy.y) > 14000000)
+        if (getContoursCount (stickL2, stickR2) > 2 && getColor(buy.x, buy.y + 144) < 11077777)
+        {
+            click(buy.x, buy.y + 144);  
+            sleep(25);
+            clickRand(confirm, 0);
+            sleep(500);
+            if (getColor(error.x, error.y) <= errorColor + 1000)
+            {
+                clickRand(confirm, 0);
+                sleep(50);
+                log("error buy 1› "+Time.getTime());
+            }
+            else
+                log("buy 1› "+Time.getTime());
+            click(viewExit.x, viewExit.y); 
+            sleep(50);
+        }
+        if ((((Time.getMillis() - kdtime) / slpS) != secItter) && getColor(buy.x, buy.y) > 14000000 && !updErrorFlag || ((Time.getMillis() - kdtime) / slpS) % 10 == 0)
         {
             secItter = ((Time.getMillis() - kdtime) / slpS);
             sleep(100);
@@ -63,5 +83,8 @@ for (;;)
             log("upd bug › "+Time.getTime());
             click(viewExit.x, viewExit.y); 
             sleep(50);
+            updErrorFlag = 1;
         }
+        else
+            updErrorFlag = 0;
 }
