@@ -67,7 +67,7 @@ for (;;)
             sleep(50);
         }
         bufTime = (Time.getMillis() - kdtime) / slpS;
-        if (bufTime != secItter && getColor(buy.x, buy.y) > 14000000 || bufTime % 8 == 0)
+        if (bufTime != secItter && (getColor(buy.x, buy.y) > 14000000 || bufTime % 8 == 0))
         {
             secItter = bufTime;
             sleep(100);
