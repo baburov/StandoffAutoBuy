@@ -34,37 +34,31 @@ for (;;)
 { 
         if (getContoursCount (stickL, stickR) > 2 && getColor(buy.x, buy.y) < 11077777)
         {
-            click(buy.x, buy.y);  
-            sleep(25);
-            clickRand(confirm, 0);
-            sleep(500);
-            if (getColor(error.x, error.y) <= errorColor + 1000)
-            {
+                click(buy.x, buy.y);  
+                sleep(25);
                 clickRand(confirm, 0);
+                sleep(500);
+                log("try buy 1› "+Time.getTime());
+                click(viewExit.x, viewExit.y); 
                 sleep(50);
-                log("error buy 1› "+Time.getTime());
-            }
-            else
-                log("buy 1› "+Time.getTime());
-            click(viewExit.x, viewExit.y); 
-            sleep(50);
         }
         if (getContoursCount (stickL2, stickR2) > 2 && getColor(buy.x, buy.y + 144) < 11077777)
         {
-            click(buy.x, buy.y + 144);  
-            sleep(25);
-            clickRand(confirm, 0);
-            sleep(500);
-            if (getColor(error.x, error.y) <= errorColor + 1000)
-            {
+                click(buy.x, buy.y + 144);  
+                sleep(25);
                 clickRand(confirm, 0);
+                sleep(500);
+                log("try buy 2› "+Time.getTime());
+                click(viewExit.x, viewExit.y); 
                 sleep(50);
-                log("error buy 2› "+Time.getTime());
-            }
-            else
-                log("buy 2› "+Time.getTime());
-            click(viewExit.x, viewExit.y); 
-            sleep(50);
+        }
+        if (getColor(error.x, error.y) < 11077777)
+        {
+                clickRand(confirm, 0);
+                sleep(150);
+                log("error buy 1› "+Time.getTime());
+                click(viewExit.x, viewExit.y); 
+                sleep(50);
         }
         bufTime = (Time.getMillis() - kdtime) / slpS;
         if (bufTime != secItter && (getColor(buy.x, buy.y) > 14000000 || bufTime % 8 == 0))
@@ -76,12 +70,14 @@ for (;;)
             click(viewExit.x, viewExit.y); 
             sleep(50);
         }
-        if (getColor(upd.x, upd.y) < 10000000)
+        bufTime = (Time.getMillis() - kdtime) / slpS;
+        if (bufTime != secItter && getColor(upd.x, upd.y) < 10000000)
         {
-            sleep(100);
-            clickRand(upd, 0);
-            log("upd bug › "+Time.getTime());
-            click(viewExit.x, viewExit.y); 
-            sleep(50);
+                secItter = bufTime;
+                sleep(100);
+                clickRand(upd, 0);
+                log("upd bug › "+Time.getTime());
+                click(viewExit.x, viewExit.y); 
+                sleep(50);
         }
 }
