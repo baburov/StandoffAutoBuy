@@ -42,7 +42,7 @@ long secItter = 0;
 int updErrorFlag = 0;
 for (;;)
 { 
-        if ((getContoursCount (stickL, stickR) > 2 || hasImg(selected_price_1, priceL, priceR) && getColor(buy.x, buy.y) < 11077777)
+        if ((getContoursCount (stickL, stickR) > 2 || hasImg(selected_price_1, priceL, priceR)) && getColor(buy.x, buy.y) < 11077777)
         {
                 click(buy.x, buy.y);  
                 sleep(5);
@@ -52,7 +52,7 @@ for (;;)
                 click(viewExit.x, viewExit.y); 
                 sleep(50);
         }
-        if ((getContoursCount (stickL2, stickR2) > 2 || hasImg(selected_price_1, priceL2, priceR2) && getColor(buy.x, buy.y + 144) < 11077777)
+        if ((getContoursCount (stickL2, stickR2) > 2 || hasImg(selected_price_1, priceL2, priceR2)) && getColor(buy.x, buy.y + 144) < 11077777)
         {
                 click(buy.x, buy.y + 144);  
                 sleep(5);
