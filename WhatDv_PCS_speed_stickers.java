@@ -6,8 +6,12 @@ var viewExit = Point.get(304, 951);
 var error = Point.get(1357, 752);
 int errorColor = 9992742;
 
-var stickL = Point.get(1473,581);
-var stickR = Point.get(1473 + (5 - stickCount) * stickSize,602); 
+var stickL = Point.get(1495,581);
+if (stickCount == 4)
+    var stickR = Point.get(1495 + stickSize/2,602);
+else 
+    var stickR = Point.get(1495 + stickSize/2 + stickSize * (4 - stickCount),602);
+        
 var stickL2 = Point.get(1473,581 + 144);
 var stickR2 = Point.get(1473 + (5 - stickCount) * stickSize,602 + 144); 
 
@@ -35,7 +39,7 @@ for (;;)
         if (getContoursCount (stickL, stickR) > 2 && getColor(buy.x, buy.y) < 11077777)
         {
                 click(buy.x, buy.y);  
-                sleep(17);
+                sleep(15);
                 clickRand(confirm, 0);
                 sleep(500);
                 log("try buy 1› "+Time.getTime());
@@ -45,7 +49,7 @@ for (;;)
         if (getContoursCount (stickL2, stickR2) > 2 && getColor(buy.x, buy.y + 144) < 11077777)
         {
                 click(buy.x, buy.y + 144);  
-                sleep(17);
+                sleep(15);
                 clickRand(confirm, 0);
                 sleep(500);
                 log("try buy 2› "+Time.getTime());
@@ -69,7 +73,7 @@ for (;;)
             sleep(50);
             clickRand(upd, 0);
             sleep(50);
-            if (bufTime != secItter && getColor(upd.x, upd.y) < 10000000)
+            if (getColor(upd.x, upd.y) < 10000000)
             {
                     secItter = bufTime;
                     sleep(50);
