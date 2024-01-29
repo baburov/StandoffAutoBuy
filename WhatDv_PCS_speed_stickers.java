@@ -11,7 +11,7 @@ var stickL = Point.get(1505,586);
 var stickR = Point.get(1495 + stickSize/2 - 10 + stickSize * (4 - stickCount),602);
 
 var stickL2 = Point.get(1473,581 + 144);
-var stickR2 = Point.get(1473 + (5 - stickCount) * stickSize,602 + 144); 
+var stickR2 = Point.get(1495 + stickSize/2 - 10 + stickSize * (4 - stickCount),602 + 144);
 
 var buy = Point.get(2240,569);
 
