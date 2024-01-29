@@ -6,12 +6,10 @@ var viewExit = Point.get(304, 951);
 var error = Point.get(1357, 752);
 int errorColor = 9992742;
 
-var stickL = Point.get(1495,581);
-if (stickCount == 4)
-    var stickR = Point.get(1495 + stickSize/2,602);
-else 
-    var stickR = Point.get(1495 + stickSize/2 + stickSize * (4 - stickCount),602);
-        
+var stickL = Point.get(1505,586);
+
+var stickR = Point.get(1495 + stickSize/2 - 10 + stickSize * (4 - stickCount),602);
+
 var stickL2 = Point.get(1473,581 + 144);
 var stickR2 = Point.get(1473 + (5 - stickCount) * stickSize,602 + 144); 
 
