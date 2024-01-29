@@ -1,10 +1,10 @@
-Image selected_price_1 = Image.load("zero_with_point");
+Image selected_price_1 = Image.load("one_with_point");
 Image selected_price_2 = Image.load("one_with_zero");
 
 var priceL = Point.get(1750, 562);
-var priceR = Point.get(1844, 605);
+var priceR = Point.get(1844, 610);
 var priceL2 = Point.get(1750, 562 + 144);
-var priceR2 = Point.get(1844, 605 + 144);
+var priceR2 = Point.get(1844, 610 + 144);
 
 var viewExit = Point.get(304, 951);
 
