@@ -28,29 +28,48 @@ int updColor = 6381138;
 startScreenCapture(2);
 sleep(5);
 long kdtime = Time.getMillis();
+long speedTime = 0;
 long bufTime = 0;
-long slpS = 1500;
+long slpS = 2000;
 long secItter = 0;
 int updErrorFlag = 0;
+int errorCount = 0;
+int buyCount = 0;
+int winRate = 0;
 for (;;)
 { 
+        speedTime = Time.getMillis();
         if (getContoursCount (stickL, stickR) > 2 && getColor(buy.x, buy.y) < 11077777)
         {
-                click(buy.x, buy.y);  
-                sleep(15);
+                click(buy.x, buy.y);
+clickRand(confirm, 0);  
                 clickRand(confirm, 0);
+                sleep(5);
+                clickRand(confirm, 0);
+                speedTime = Time.getMillis() - speedTime;
                 sleep(500);
-                log("try buy 1› "+Time.getTime());
-                click(viewExit.x, viewExit.y); 
+                log("try buy 1› "+Time.getTime() + " speed: " + speedTime + "ms");
+                buyCount++;
+                winRate = ((buyCount - errorCount) / buyCount * 100);
+                log("win rate › " + winRate + "%");
+                
+                click(viewExit.x, viewExit.y);
                 sleep(50);
         }
-        if (getContoursCount (stickL2, stickR2) > 2 && getColor(buy.x, buy.y + 144) < 11077777)
+        speedTime = Time.getMillis();
+        if (getContoursCount (stickL2, stickR2) > 2 && getColor(buy.x, buy.y + slotH) < 11077777)
         {
-                click(buy.x, buy.y + 144);  
-                sleep(15);
+                click(buy.x, buy.y + slotH);  
+clickRand(confirm, 0);
                 clickRand(confirm, 0);
+                sleep(5);
+                clickRand(confirm, 0);
+                speedTime = Time.getMillis() - speedTime;
                 sleep(500);
-                log("try buy 2› "+Time.getTime());
+                log("try buy 2› "+Time.getTime() + " speed: " + speedTime + "ms");
+                buyCount++;
+                winRate = ((buyCount - errorCount) / buyCount * 100);
+                log("win rate › " + winRate + "%");
                 click(viewExit.x, viewExit.y); 
                 sleep(50);
         }
@@ -59,26 +78,28 @@ for (;;)
                 clickRand(confirm, 0);
                 sleep(50);
                 log("error buy 1› "+Time.getTime());
+                if (buyCount != 0)
+                        errorCount++;
                 click(viewExit.x, viewExit.y); 
                 sleep(50);
         }
         bufTime = (Time.getMillis() - kdtime) / slpS;
-        if (bufTime != secItter && (getColor(buy.x, buy.y) > 14000000 || bufTime % 8 == 0))
+        if (bufTime != secItter && (getColor(buy.x, buy.y) > 14000000 || bufTime % 12 == 0))
         {
             secItter = bufTime;
-            sleep(50);
+          
             clickRand(upd, 0);
-            sleep(50);
+            sleep(200);
             clickRand(upd, 0);
-            sleep(50);
-            if (getColor(upd.x, upd.y) < 10000000)
-            {
-                    secItter = bufTime;
-                    sleep(50);
-                    clickRand(upd, 0);
-                    log("upd bug › "+Time.getTime());
-            }
+            sleep(100);
             click(viewExit.x, viewExit.y); 
             sleep(50);
+        }
+bufTime = (Time.getMillis() - kdtime) / slpS;
+        if (bufTime != secItter && getColor(upd.x, upd.y) < 10000000)
+        {
+                    secItter = bufTime;
+                    clickRand(upd, 0);
+                    //log("upd bug › "+Time.getTime());
         }
 }
