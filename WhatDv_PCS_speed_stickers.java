@@ -21,7 +21,7 @@ var upd = Point.get(1002,463);
 
 int slotH = 144;
 
-int slotA = 3;
+int slotA = 7;
 
 int updColor = 6381138;
 
@@ -36,40 +36,28 @@ int updErrorFlag = 0;
 int errorCount = 0;
 int buyCount = 0;
 int winRate = 0;
+var stickBufL = Point.get();
+var stickBufR = Point.get();
 for (;;)
 { 
+        stickBufL.x = stickL.x;
+        stickBufL.y = stickL.y;
+        stickBufR.x = stickR.x;
+        stickBufR.y = stickR.y;
+        for (int i = 0; i < slotA; i++){
+                stickBufR.y += slotH;
+                stickBufL.y += slotH;
         speedTime = Time.getMillis();
-        if (getContoursCount (stickL, stickR) > 2 && getColor(buy.x, buy.y) < 11077777)
+        if (getContoursCount (stickL, stickR) > 2 && getColor(buy.x, buy.y + slotH * i) < 11077777)
         {
-                click(buy.x, buy.y);
-clickRand(confirm, 0);  
+                click(buy.x, buy.y + slotH * i);  
+                clickRand(confirm, 0);
                 clickRand(confirm, 0);
                 sleep(5);
                 clickRand(confirm, 0);
                 speedTime = Time.getMillis() - speedTime;
                 sleep(500);
-                log("try buy 1› "+Time.getTime() + " speed: " + speedTime + "ms");
-                buyCount++;
-                winRate = ((buyCount - errorCount) / buyCount * 100);
-                log("win rate › " + winRate + "%");
-                
-                click(viewExit.x, viewExit.y);
-                sleep(50);
-        }
-        speedTime = Time.getMillis();
-        if (getContoursCount (stickL2, stickR2) > 2 && getColor(buy.x, buy.y + slotH) < 11077777)
-        {
-                click(buy.x, buy.y + slotH);  
-clickRand(confirm, 0);
-                clickRand(confirm, 0);
-                sleep(5);
-                clickRand(confirm, 0);
-                speedTime = Time.getMillis() - speedTime;
-                sleep(500);
-                log("try buy 2› "+Time.getTime() + " speed: " + speedTime + "ms");
-                buyCount++;
-                winRate = ((buyCount - errorCount) / buyCount * 100);
-                log("win rate › " + winRate + "%");
+                log("try buy " + i + "› "+Time.getTime() + " speed: " + speedTime + "ms");
                 click(viewExit.x, viewExit.y); 
                 sleep(50);
         }
@@ -78,8 +66,6 @@ clickRand(confirm, 0);
                 clickRand(confirm, 0);
                 sleep(50);
                 log("error buy 1› "+Time.getTime());
-                if (buyCount != 0)
-                        errorCount++;
                 click(viewExit.x, viewExit.y); 
                 sleep(50);
         }
@@ -101,5 +87,6 @@ bufTime = (Time.getMillis() - kdtime) / slpS;
                     secItter = bufTime;
                     clickRand(upd, 0);
                     //log("upd bug › "+Time.getTime());
+        }
         }
 }
