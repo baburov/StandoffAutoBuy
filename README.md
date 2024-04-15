@@ -1,4 +1,5 @@
 ﻿# StandoffAutoBuy
+Скрипты для кликера PerfectClick для автотрейда в Standoff 2 
 ## speed_stickers
 - упрощенная версия v3
 - проверяет только два лота на кол-во наклеек
